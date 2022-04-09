@@ -7,6 +7,8 @@ export class Settings {
 
   constructor() {
     this.ts_channels = [];
+    this.mqtt_topics = [];
+    this.mqtt_server = new MQTTServer();
     this.ts_channels.push(new Channel());
     this.sensors = [];
     this.internet = new InternetSettings();
@@ -14,6 +16,8 @@ export class Settings {
     this.display = new DisplaySettings();
   }
   ts_channels: Channel[];
+  mqtt_topics: MQTTTopic[];
+  mqtt_server: MQTTServer; 
   ts_server_url?: string;
   interval: number;
   button_pin: number;
@@ -41,5 +45,34 @@ export class Channel {
   ts_channel_id: number;
   ts_write_key: string;
 }
+
+export class MQTTTopic {
+
+  constructor() {
+    this.topic = '';
+  }
+
+  name?: string;
+  topic: string;
+}
+
+export class MQTTServer {
+
+  constructor() {
+    this.enabled = false;
+    this.server_url = '';
+    this.prefix = '';
+    this.username = undefined;
+    this.password = undefined;
+  }
+
+  enabled: boolean;
+  name?: string;
+  server_url: string;
+  prefix: string;
+  username: string;
+  password: string;
+}
+
 
 

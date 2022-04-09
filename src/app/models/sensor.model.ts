@@ -55,5 +55,4 @@ export class Sensor {
   I2CVoltage: number;
   // PA1010D
   timeout: number;
-
 }

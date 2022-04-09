@@ -1,0 +1,59 @@
+
+<div class="form-group">
+  <label for="mqtt_enabled">MQTT aktiv</label>
+  <input type="checkbox" class="form-control" [(ngModel)]="settings.mqtt_server.enabled"
+         id="mqtt_enabled" name="mqtt_enabled"
+         #mqtt_enabled="ngModel">
+</div>
+
+<div class="form-group">
+  <label for="mqtt_server_url">MQTT Server</label>
+  <input type="url" class="form-control" [(ngModel)]="settings.mqtt_server.server_url"
+         id="mqtt_server_url" name="mqtt_server_url" placeholder="mqtt_server.local"
+         #mqtt_server_url="ngModel" >
+</div>
+<div *ngFor="let topic of settings.mqtt_topics; let i=index; let last=last;let first=first;" class="rounded row">
+  <div class="col-12" [ngClass]="{'my-bg-ts': (i%2 != 0)}" [class.spinner]="checkElement.disabled">
+    <br *ngIf="!first">
+    <div class="btn-group btn-group-sm float-right" role="group">
+      <button type="button" (click)="removeTopic(i)" class="btn btn-danger btn-sm" style="margin-bottom:10px" [disabled]="isRemovingDisabled" title="{{ 'settings.mqtt.removeTopic' | translate}}">&#x232b;</button>
+    </div>
+    <h5 class="h5">MQTT Topic #{{i+1}}</h5>
+    
+    <div class="form-group">
+        <label for="mqtt_topic_name">Name</label>      
+        <div class="input-group">
+        <input type="text" class="form-control" [(ngModel)]="topic.name"
+               id="mqtt_topic_name" name="mqtt_topic_name" placeholder="Beute 1 Sensor Temperatur"
+               #mqtt_topic_name="ngModel">
+               
+        <span class="input-group-btn">
+          <button type="button" #checkElement (click)="checkTopic(topic.topic, checkElement);" [class.disabled]="!topic.topic" class="btn btn-warning" title="{{ 'settings.mqtt.checkConnection' | translate}}">&#x2713;</button>
+        </span>
+      </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="mqtt_topic_topic">Topic</label>      
+        <div class="input-group">
+        <input type="text" class="form-control" [(ngModel)]="topic.topic"
+               id="mqtt_topic_topic" name="mqtt_topic_topic" placeholder="/site1/beute1/temperature"
+               #mqtt_topic_topic="ngModel">
+               
+        <span class="input-group-btn">
+          <button type="button" #checkElement (click)="checkTopic(topic.topic, checkElement);" [class.disabled]="!topic.topic" class="btn btn-warning" title="{{ 'settings.mqtt.checkConnection' | translate}}">&#x2713;</button>
+        </span>
+      </div>
+    </div>
+    
+    <br *ngIf="!last">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <br>
+    <button type="button" (click)="addTopic()" class="btn btn-primary btn-sm float-left shadow-sm" [disabled]="isAddingDisabled">&#x2b; {{ 'settings.mqtt.addTopic' | translate}}</button>
+  </div>
+</div>
+

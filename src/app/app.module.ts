@@ -17,6 +17,8 @@ import { LogComponent } from './components/log/log.component';
 import { MeasurementComponent } from './components/measurement/measurement.component';
 import { SensorsComponent } from './components/sensors/sensors.component';
 import { ThingspeakComponent } from './components/thingspeak/thingspeak.component';
+import { MQTTComponent } from './components/mqtt/mqtt.component';
+
 import { WittypiComponent } from './components/wittypi/wittypi.component';
 import { UpdateComponent } from './components/update/update.component';
 import { OfflineComponent } from './components/offline/offline.component';
@@ -46,6 +48,7 @@ const appRoutes: Routes = [
         MeasurementComponent,
         SensorsComponent,
         ThingspeakComponent,
+        MQTTComponent,
         WittypiComponent,
         UpdateComponent,
         OfflineComponent,

@@ -101,6 +101,15 @@ export class AppService {
         }
       });
   }
+  
+  checkMQTTTopic(topicdata: {topic: string}): Observable<Response> {
+    return this.http.post(environment.apiURL + 'check_thingspeak.php', topicdata)
+      .map((response: Response) => {
+        if (response) {
+          return response;
+        }
+      });
+  }
 
   checkNewUpdate(): Observable<{chdir: string, isStable: boolean, isNewVersionAvailable: boolean}> {
     return this.http.get(environment.apiURL + 'update.php?mode=checkUpdate')
