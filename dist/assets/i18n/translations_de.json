@@ -215,6 +215,14 @@
       "removeChannel": "Channel aus der Liste Entfernen",
       "title": "ThingSpeak Einstellungen"
     },
+    "mqtt": {
+      "addTopic": "Weitere Topics hinzufügen",
+      "checkConnection": "Verbindung zu MQTT überprüfen",
+      "confirmCheck": "Du bist dabei zu testen, ob die eingegebenen MQTT Verbindungsdaten richtig sind.\nHinweis: Diese Funktion geht nur, wenn der Raspberry mit dem Internet verbunden bist. Um die Internetverbindung zu prüfen gibt es unterhalb den Reiter und den Button \"Internetverbindung prüfen\".",
+      "topic": "Topic",
+      "removeTopic": "Topic aus der Liste Entfernen",
+      "title": "MQTT Einstellungen"
+    },
     "update": {
       "availableVersion": "Vefügbare Versionen:",
       "currentVersion": "Derzeit installierte Version:",
