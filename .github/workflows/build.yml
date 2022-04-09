@@ -31,6 +31,12 @@ jobs:
         message: 'Updating /dist'
         add: '.'
         
+    - uses: Klemensas/action-autotag@stable
+      with:
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        tag_suffix: " (snapshot)"
+
+        
     - name: release
       uses: actions/create-release@v1
       id: create_release
