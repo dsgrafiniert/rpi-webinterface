@@ -22,7 +22,15 @@ jobs:
     - run: npm install
     - run: npm install -g @angular/cli > /dev/null
     - run: ng build --configuration production
-
+    
+    - name: Update SemVer
+      id: update_semver
+      uses: K-Phoen/semver-release-action@master
+      with:
+        release_branch: master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+   
     # push the /dist folder to your repo
     - name: Commit changes
       uses: EndBug/add-and-commit@v7
@@ -31,18 +39,9 @@ jobs:
         message: 'Updating /dist'
         add: '.'
         
-    - uses: Klemensas/action-autotag@stable
+    - uses: "marvinpinto/action-automatic-releases@latest"
       with:
-        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        tag_suffix: " (snapshot)"
-
-        
-    - name: release
-      uses: actions/create-release@v1
-      id: create_release
-      with:
-        draft: false
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest"
         prerelease: true
-        release_name: ${{ steps.version.outputs.version }}
-      env:
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        title: "Development Build"
