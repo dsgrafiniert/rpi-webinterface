@@ -7,7 +7,6 @@ export class Settings {
 
   constructor() {
     this.ts_channels = [];
-    this.mqtt_topics = [];
     this.mqtt_server = new MQTTServer();
     this.ts_channels.push(new Channel());
     this.sensors = [];
