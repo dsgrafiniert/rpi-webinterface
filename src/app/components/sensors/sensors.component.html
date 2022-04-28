@@ -411,6 +411,12 @@
       <td colspan="2">
         <div class="row">
           <div class="form-group col-12 col-sm-6">
+            <label for="mqtt_topic">MQTT-Topic</label>
+            <input type="text" class="form-control" [(ngModel)]="sensor.mqtt_topic" id="mqtt_topic_max" name="mqtt_topic_max" placeholder="{{'settings.sensors.mqtt_topic' | translate }}" />
+            
+          </div>
+        <div class="row">
+          <div class="form-group col-12 col-sm-6">
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.temperature' | translate)"
                                [ts_field_id]="'ts_field_temperature'"
                                (ts_fieldChanged)="sensor.ts_field_temperature = $event"
