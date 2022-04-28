@@ -352,6 +352,13 @@
       <td colspan="2">
         <div class="row">
           <div class="form-group col-12 col-sm-6">
+            <label for="mqtt_topic">MQTT-Topic</label>
+            <input type="text" class="form-control" [(ngModel)]="sensor.mqtt_topic" id="mqtt_topic_max" name="mqtt_topic_max" placeholder="{{'settings.sensors.mqtt_topic' | translate }}" />
+            
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-12 col-sm-6">
             <settings-gpio-field [label]="'Chip-Select (CS)-GPIO'"
                                  [field_id]="'pin_cs'"
                                  (fieldChanged)="sensor.pin_cs = $event"
