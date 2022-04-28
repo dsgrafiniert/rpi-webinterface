@@ -32,44 +32,4 @@ export class MQTTComponent implements OnInit {
   ngOnInit() {
   }
 
-  addTopic() {
-    this.settings.mqtt_topics.push({topic: ''});
-  }
-
-  removeTopic(index: number): void {
-    this.settings.mqtt_topics.splice(index, 1);
-  }
-
-  get isAddingDisabled(): boolean {
-    return (this.settings.ts_channels.length >= 10);
-  }
-
-  get isRemovingDisabled(): boolean {
-    return (this.settings.ts_channels.length <= 1);
-  }
-
-  checkTopic(topic: string, el: HTMLButtonElement): void {
-    this.translate.get('settings.thingspeak.confirmCheck').subscribe((translated: string) => {
-      if (window.confirm(translated)) {
-        el.setAttribute('disabled', 'disabled');
-        const mqttdata = {topic: topic};
-        this.appService.checkMQTTTopic(mqttdata).timeout(15000)
-          .finally(() => {
-            el.removeAttribute('disabled');
-          })
-          .subscribe(res => {
-            // ok
-            el.classList.remove('btn-danger', 'btn-warning');
-            el.classList.add('btn-success');
-          }, (err: any) => {
-            // error
-            console.log(err);
-            el.classList.remove('btn-success', 'btn-warning');
-            el.classList.add('btn-danger');
-          });
-      }
-    });
-
-  }
-
 }

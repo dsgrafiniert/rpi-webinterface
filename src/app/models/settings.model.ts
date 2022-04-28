@@ -16,7 +16,6 @@ export class Settings {
     this.display = new DisplaySettings();
   }
   ts_channels: Channel[];
-  mqtt_topics: MQTTTopic[];
   mqtt_server: MQTTServer; 
   ts_server_url?: string;
   interval: number;

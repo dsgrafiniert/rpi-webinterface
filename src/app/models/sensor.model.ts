@@ -22,6 +22,7 @@ export class Sensor {
   type: number;
   name: string;
   ts_field: string;
+  mqtt_topic: string;
   // HX711
   reference_unit: number;
   channel: string;

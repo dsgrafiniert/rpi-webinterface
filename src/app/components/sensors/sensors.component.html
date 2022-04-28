@@ -46,6 +46,15 @@
                                [ts_field]="sensor.ts_field" [channels]="settings.ts_channels" ></settings-ts-field>
           </div>
         </div>
+        
+        <div class="row">
+          <div class="form-group col-12 col-sm-6">
+            <label for="mqtt_topic">MQTT-Topic</label>
+            <input type="text" class="form-control" [(ngModel)]="sensor.mqtt_topic" id="mqtt_topic_ds18b20" name="mqtt_topic_ds18b20" placeholder="{{'settings.sensors.mqtt_topic' | translate }}" />
+            
+          </div>
+        </div>
+        
         <div class="row">
           <div class="form-group col-12 col-sm-6">
             <settings-gpio-field [label]="'1-WIRE GPIO'"
@@ -96,6 +105,13 @@
     </tr>
     <tr *ngIf="sensor.type == 1" [ngClass]="{'my-bg': (i%2 == 0)}">
       <td colspan="2">
+        <div class="row">
+          <div class="form-group col-12 col-sm-6">
+            <label for="mqtt_topic">MQTT-Topic</label>
+            <input type="text" class="form-control" [(ngModel)]="sensor.mqtt_topic" id="mqtt_topic_bme680" name="mqtt_topic_bme680" placeholder="{{'settings.sensors.mqtt_topic' | translate }}" />
+            
+          </div>
+        </div>
         <div class="row">
           <div class="form-group col-12 col-sm-6">
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.temperature' | translate)"
@@ -166,6 +182,13 @@
                                  [field]="sensor.pin_sck"
                                  [required]="true"
                                  [disabled_pins]="[settings.led_pin,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-12 col-sm-6">
+            <label for="mqtt_topic">MQTT-Topic</label>
+            <input type="text" class="form-control" [(ngModel)]="sensor.mqtt_topic" id="mqtt_topic_hx711" name="mqtt_topic_hx711" placeholder="{{'settings.sensors.mqtt_topic' | translate }}" />
+            
           </div>
         </div>
         <div class="row">
@@ -277,6 +300,13 @@
     </tr>
     <tr *ngIf="sensor.type == 3" [ngClass]="{'my-bg': (i%2 == 0)}">
       <td colspan="2">
+        <div class="row">
+          <div class="form-group col-12 col-sm-6">
+            <label for="mqtt_topic">MQTT-Topic</label>
+            <input type="text" class="form-control" [(ngModel)]="sensor.mqtt_topic" id="mqtt_topic_dht" name="mqtt_topic_dht" placeholder="{{'settings.sensors.mqtt_topic' | translate }}" />
+            
+          </div>
+        </div>
         <div class="row">
           <div class="form-group col-12 col-sm-6">
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.temperature' | translate)"
